@@ -1,5 +1,6 @@
 const { isToday, isDateNotInRange, sameMonth } = require('./dateutils');
 const { toMarkingFormat } = require('./interface');
+//@ts-ignore todo: fix this in the mobile app tsconfig
 export function getState(day, current, props, disableDaySelection) {
     const { minDate, maxDate, disabledByDefault, context } = props;
     let state = '';
