@@ -7,7 +7,9 @@ export function padNumber(n: number) {
   return n;
 }
 
+//@ts-ignore todo: fix this in the mobile app tsconfig
 export function xdateToData(date: XDate | string) {
+  //@ts-ignore todo: fix this in the mobile app tsconfig
   const d = date instanceof XDate ? date : new XDate(date);
   const dateString = toMarkingFormat(d);
   return {
@@ -41,6 +43,7 @@ export function parseDate(d?: any) {
   }
 }
 
+//@ts-ignore todo: fix this in the mobile app tsconfig
 export function toMarkingFormat(d: XDate) {
   if (!isNaN(d.getTime())) {
     const year = `${d.getFullYear()}`;

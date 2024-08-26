@@ -1,3 +1,4 @@
+//@ts-nocheck todo: fix this in the mobile app tsconfig
 const XDate = require('xdate');
 const {toMarkingFormat} = require('./interface');
 

@@ -111,5 +111,6 @@ export type AgendaSchedule = {
 
 export interface DayAgenda {
   reservation?: AgendaEntry;
+  //@ts-ignore todo: fix this in the mobile app tsconfig
   date?: XDate;
 }
