@@ -53,21 +53,38 @@ const EventBlock = (props: EventBlockProps) => {
   }, [index, onPress]);
 
   return (
-    <TouchableOpacity activeOpacity={0.9} onPress={_onPress} style={[styles.event, eventStyle]}>
+    <TouchableOpacity
+      activeOpacity={0.9}
+      onPress={_onPress}
+      // @ts-ignore - incompatible with Expo SDK 52 react-native-web types.
+      style={[styles.event, eventStyle]}
+    >
       {renderEvent ? (
         renderEvent(event)
       ) : (
         <View>
-          <Text numberOfLines={1} style={styles.eventTitle}>
+          <Text
+            numberOfLines={1}
+            // @ts-ignore - incompatible with Expo SDK 52 react-native-web types.
+            style={styles.eventTitle}
+          >
             {event.title || 'Event'}
           </Text>
           {numberOfLines > 1 ? (
-            <Text numberOfLines={numberOfLines - 1} style={[styles.eventSummary]}>
+            <Text
+              numberOfLines={numberOfLines - 1}
+              // @ts-ignore - incompatible with Expo SDK 52 react-native-web types.
+              style={[styles.eventSummary]}
+            >
               {event.summary || ' '}
             </Text>
           ) : null}
           {numberOfLines > 2 ? (
-            <Text style={styles.eventTimes} numberOfLines={1}>
+            <Text
+              // @ts-ignore - incompatible with Expo SDK 52 react-native-web types.
+              style={styles.eventTimes}
+              numberOfLines={1}
+            >
               {new XDate(event.start).toString(formatTime)} - {new XDate(event.end).toString(formatTime)}
             </Text>
           ) : null}

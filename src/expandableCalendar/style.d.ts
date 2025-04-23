@@ -71,7 +71,7 @@ export default function styleConstructor(theme?: Theme): {
         paddingBottom: number;
         fontSize: number;
         fontFamily: string;
-        fontWeight: "300" | "600" | "normal" | "bold" | "100" | "200" | "400" | "500" | "700" | "800" | "900";
+        fontWeight: 900 | "300" | "600" | "normal" | "bold" | "100" | "200" | "400" | "500" | "700" | "800" | "900" | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | "ultralight" | "thin" | "light" | "medium" | "regular" | "semibold" | "condensedBold" | "condensed" | "heavy" | "black";
         color: string;
     };
     weekDayNames: {
@@ -83,7 +83,7 @@ export default function styleConstructor(theme?: Theme): {
         textAlign: "center";
         fontSize: number;
         fontFamily: string;
-        fontWeight: "300" | "600" | "normal" | "bold" | "100" | "200" | "400" | "500" | "700" | "800" | "900" | undefined;
+        fontWeight: 900 | "300" | "600" | "normal" | "bold" | "100" | "200" | "400" | "500" | "700" | "800" | "900" | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | "ultralight" | "thin" | "light" | "medium" | "regular" | "semibold" | "condensedBold" | "condensed" | "heavy" | "black" | undefined;
         color: string;
     };
     monthView: {
@@ -180,7 +180,7 @@ export default function styleConstructor(theme?: Theme): {
     todayButtonText: {
         color: string;
         fontSize: number;
-        fontWeight: "300" | "600" | "normal" | "bold" | "100" | "200" | "400" | "500" | "700" | "800" | "900";
+        fontWeight: 900 | "300" | "600" | "normal" | "bold" | "100" | "200" | "400" | "500" | "700" | "800" | "900" | 100 | 200 | 300 | 400 | 500 | 600 | 700 | 800 | "ultralight" | "thin" | "light" | "medium" | "regular" | "semibold" | "condensedBold" | "condensed" | "heavy" | "black";
         fontFamily: string;
     };
     todayButtonImage: {

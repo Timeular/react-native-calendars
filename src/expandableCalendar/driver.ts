@@ -7,7 +7,7 @@ export class ExpandableCalendarDriver {
   element: React.ReactElement;
   renderTree: ReturnType<typeof render>;
 
-    constructor(testID: string, element: React.ReactElement) {
+  constructor(testID: string, element: React.ReactElement) {
     this.testID = testID;
     this.element = element;
     this.renderTree = this.render(element);
@@ -96,8 +96,8 @@ export class ExpandableCalendarDriver {
 
   getTodayButton() {
     try {
-       return this.renderTree.getByText('Today');
-  } catch (e) {
+      return this.renderTree.getByText('Today');
+    } catch (e) {
       return undefined;
     }
   }

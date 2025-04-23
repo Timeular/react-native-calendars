@@ -19,9 +19,18 @@ const NowIndicator = (props: NowIndicatorProps) => {
   }, [indicatorPosition, left]);
 
   return (
-    <View style={nowIndicatorStyle}>
-      <View style={[styles.nowIndicatorLine, {width}]}/>
-      <View style={styles.nowIndicatorKnob}/>
+    <View
+      // @ts-ignore - incompatible with Expo SDK 52 react-native-web types.
+      style={nowIndicatorStyle}
+    >
+      <View
+        // @ts-ignore - incompatible with Expo SDK 52 react-native-web types.
+        style={[styles.nowIndicatorLine, {width}]}
+      />
+      <View
+        // @ts-ignore - incompatible with Expo SDK 52 react-native-web types.
+        style={styles.nowIndicatorKnob}
+      />
     </View>
   );
 };

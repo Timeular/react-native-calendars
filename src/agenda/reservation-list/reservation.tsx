@@ -11,7 +11,6 @@ import {RESERVATION_DATE} from '../../testIDs';
 import styleConstructor from './style';
 import {Theme, AgendaEntry} from '../../types';
 
-
 export interface ReservationProps {
   date?: XDate;
   item?: AgendaEntry;
@@ -53,7 +52,7 @@ class Reservation extends Component<ReservationProps> {
     const d2 = nextProps.date;
     const r1 = this.props.item;
     const r2 = nextProps.item;
-    
+
     let changed = true;
     if (!d1 && !d2) {
       changed = false;
@@ -95,12 +94,12 @@ class Reservation extends Component<ReservationProps> {
         </View>
       );
     }
-    return <View style={this.style.day}/>;
+    return <View style={this.style.day} />;
   }
 
   render() {
     const {item, date, renderItem, renderEmptyDate} = this.props;
-    
+
     let content;
     if (item) {
       const firstItem = date ? true : false;

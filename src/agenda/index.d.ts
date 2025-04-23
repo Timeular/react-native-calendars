@@ -5,10 +5,10 @@ import { Animated, ViewStyle, LayoutChangeEvent, NativeSyntheticEvent, NativeScr
 import { DateData, AgendaSchedule } from '../types';
 import { CalendarListProps } from '../calendar-list';
 import ReservationList, { ReservationListProps } from './reservation-list';
-export declare type AgendaProps = CalendarListProps & ReservationListProps & {
+export type AgendaProps = CalendarListProps & ReservationListProps & {
     /** the list of items that have to be displayed in agenda. If you want to render item as empty date
-    the value of date key kas to be an empty array []. If there exists no value for date key it is
-    considered that the date in question is not yet loaded */
+  the value of date key kas to be an empty array []. If there exists no value for date key it is
+  considered that the date in question is not yet loaded */
     items?: AgendaSchedule;
     /** callback that gets called when items for a certain month should be loaded (month became visible) */
     loadItemsForMonth?: (data: DateData) => void;
@@ -27,7 +27,7 @@ export declare type AgendaProps = CalendarListProps & ReservationListProps & {
     /** Whether the knob should always be visible (when hideKnob = false) */
     showClosingKnob?: boolean;
 };
-declare type State = {
+type State = {
     scrollY: Animated.Value;
     calendarIsReady: boolean;
     calendarScrollable: boolean;
@@ -70,7 +70,7 @@ export default class Agenda extends Component<AgendaProps, State> {
         reservationsKeyExtractor: PropTypes.Requireable<(...args: any[]) => any>;
         date: PropTypes.Requireable<any>;
         item: PropTypes.Requireable<any>;
-        theme: PropTypes.Requireable<object>; /** callback that gets called when items for a certain month should be loaded (month became visible) */
+        theme: PropTypes.Requireable<object>;
         rowHasChanged: PropTypes.Requireable<(...args: any[]) => any>;
         renderDay: PropTypes.Requireable<(...args: any[]) => any>;
         renderItem: PropTypes.Requireable<(...args: any[]) => any>;
@@ -135,20 +135,21 @@ export default class Agenda extends Component<AgendaProps, State> {
         disableAllTouchEventsForInactiveDays?: React.Validator<boolean | null | undefined> | undefined;
         accessibilityLabel?: React.Validator<string | null | undefined> | undefined;
         children?: React.Validator<React.ReactNode> | undefined;
-        hitSlop?: React.Validator<import("react-native").Insets | null | undefined> | undefined;
+        hitSlop?: React.Validator<number | import("react-native").Insets | null | undefined> | undefined;
         id?: React.Validator<string | null | undefined> | undefined;
+        needsOffscreenAlphaCompositing?: React.Validator<boolean | null | undefined> | undefined;
         onLayout?: React.Validator<((event: LayoutChangeEvent) => void) | null | undefined> | undefined;
         pointerEvents?: React.Validator<"auto" | "none" | "box-none" | "box-only" | null | undefined> | undefined;
         removeClippedSubviews?: React.Validator<boolean | null | undefined> | undefined;
         nativeID?: React.Validator<string | null | undefined> | undefined;
         collapsable?: React.Validator<boolean | null | undefined> | undefined;
-        needsOffscreenAlphaCompositing?: React.Validator<boolean | null | undefined> | undefined;
+        collapsableChildren?: React.Validator<boolean | null | undefined> | undefined;
         renderToHardwareTextureAndroid?: React.Validator<boolean | null | undefined> | undefined;
         focusable?: React.Validator<boolean | null | undefined> | undefined;
+        tabIndex?: React.Validator<0 | -1 | null | undefined> | undefined;
         shouldRasterizeIOS?: React.Validator<boolean | null | undefined> | undefined;
         isTVSelectable?: React.Validator<boolean | null | undefined> | undefined;
         hasTVPreferredFocus?: React.Validator<boolean | null | undefined> | undefined;
-        tvParallaxProperties?: React.Validator<import("react-native").TVParallaxProperties | null | undefined> | undefined;
         tvParallaxShiftDistanceX?: React.Validator<number | null | undefined> | undefined;
         tvParallaxShiftDistanceY?: React.Validator<number | null | undefined> | undefined;
         tvParallaxTiltAngle?: React.Validator<number | null | undefined> | undefined;
@@ -195,7 +196,6 @@ export default class Agenda extends Component<AgendaProps, State> {
         'aria-disabled'?: React.Validator<boolean | null | undefined> | undefined;
         'aria-expanded'?: React.Validator<boolean | null | undefined> | undefined;
         'aria-selected'?: React.Validator<boolean | null | undefined> | undefined;
-        'aria-labelledby'?: React.Validator<string | null | undefined> | undefined;
         accessibilityHint?: React.Validator<string | null | undefined> | undefined;
         accessibilityValue?: React.Validator<import("react-native").AccessibilityValue | null | undefined> | undefined;
         'aria-valuemax'?: React.Validator<number | null | undefined> | undefined;
@@ -204,22 +204,25 @@ export default class Agenda extends Component<AgendaProps, State> {
         'aria-valuetext'?: React.Validator<string | null | undefined> | undefined;
         onAccessibilityAction?: React.Validator<((event: import("react-native").AccessibilityActionEvent) => void) | null | undefined> | undefined;
         'aria-hidden'?: React.Validator<boolean | null | undefined> | undefined;
-        'aria-live'?: React.Validator<"polite" | "assertive" | "off" | null | undefined> | undefined;
         'aria-modal'?: React.Validator<boolean | null | undefined> | undefined;
         role?: React.Validator<import("react-native").Role | null | undefined> | undefined;
-        accessibilityLiveRegion?: React.Validator<"none" | "polite" | "assertive" | null | undefined> | undefined;
         accessibilityLabelledBy?: React.Validator<string | string[] | null | undefined> | undefined;
+        'aria-labelledby'?: React.Validator<string | null | undefined> | undefined;
+        accessibilityLiveRegion?: React.Validator<"none" | "polite" | "assertive" | null | undefined> | undefined;
+        'aria-live'?: React.Validator<"polite" | "assertive" | "off" | null | undefined> | undefined;
         accessibilityViewIsModal?: React.Validator<boolean | null | undefined> | undefined;
         onAccessibilityEscape?: React.Validator<(() => void) | null | undefined> | undefined;
         onAccessibilityTap?: React.Validator<(() => void) | null | undefined> | undefined;
         onMagicTap?: React.Validator<(() => void) | null | undefined> | undefined;
         accessibilityIgnoresInvertColors?: React.Validator<boolean | null | undefined> | undefined;
         accessibilityLanguage?: React.Validator<string | null | undefined> | undefined;
+        accessibilityShowsLargeContentViewer?: React.Validator<boolean | null | undefined> | undefined;
+        accessibilityLargeContentTitle?: React.Validator<string | null | undefined> | undefined;
         horizontal?: React.Validator<boolean | null | undefined> | undefined;
         columnWrapperStyle?: React.Validator<import("react-native").StyleProp<ViewStyle>> | undefined;
         keyboardShouldPersistTaps?: React.Validator<boolean | "never" | "always" | "handled" | null | undefined> | undefined;
         extraData?: React.Validator<any> | undefined;
-        getItemLayout?: React.Validator<((data: any[] | null | undefined, index: number) => {
+        getItemLayout?: React.Validator<((data: ArrayLike<any> | null | undefined, index: number) => {
             length: number;
             offset: number;
             index: number;
@@ -229,15 +232,11 @@ export default class Agenda extends Component<AgendaProps, State> {
         keyExtractor?: React.Validator<((item: any, index: number) => string) | null | undefined> | undefined;
         legacyImplementation?: React.Validator<boolean | null | undefined> | undefined;
         numColumns?: React.Validator<number | null | undefined> | undefined;
-        onEndReached?: React.Validator<((info: {
-            distanceFromEnd: number;
-        }) => void) | null | undefined> | undefined;
-        onEndReachedThreshold?: React.Validator<number | null | undefined> | undefined;
         onViewableItemsChanged?: React.Validator<((info: {
-            viewableItems: import("react-native").ViewToken[];
-            changed: import("react-native").ViewToken[];
+            viewableItems: import("react-native").ViewToken<any>[];
+            changed: import("react-native").ViewToken<any>[];
         }) => void) | null | undefined> | undefined;
-        viewabilityConfig?: React.Validator<any> | undefined;
+        viewabilityConfig?: React.Validator<import("react-native").ViewabilityConfig | null | undefined> | undefined;
         fadingEdgeLength?: React.Validator<number | null | undefined> | undefined;
         ItemSeparatorComponent?: React.Validator<React.ComponentType<any> | null | undefined> | undefined;
         ListEmptyComponent?: React.Validator<React.ComponentType<any> | React.ReactElement<any, string | React.JSXElementConstructor<any>> | null | undefined> | undefined;
@@ -251,17 +250,25 @@ export default class Agenda extends Component<AgendaProps, State> {
         getItemCount?: React.Validator<((data: any) => number) | null | undefined> | undefined;
         inverted?: React.Validator<boolean | null | undefined> | undefined;
         maxToRenderPerBatch?: React.Validator<number | null | undefined> | undefined;
+        onEndReached?: React.Validator<((info: {
+            distanceFromEnd: number;
+        }) => void) | null | undefined> | undefined;
+        onEndReachedThreshold?: React.Validator<number | null | undefined> | undefined;
         onScrollToIndexFailed?: React.Validator<((info: {
             index: number;
             highestMeasuredFrameIndex: number;
             averageItemLength: number;
         }) => void) | null | undefined> | undefined;
+        onStartReached?: React.Validator<((info: {
+            distanceFromStart: number;
+        }) => void) | null | undefined> | undefined;
+        onStartReachedThreshold?: React.Validator<number | null | undefined> | undefined;
         progressViewOffset?: React.Validator<number | null | undefined> | undefined;
         renderScrollComponent?: React.Validator<((props: import("react-native").ScrollViewProps) => React.ReactElement<import("react-native").ScrollViewProps, string | React.JSXElementConstructor<any>>) | null | undefined> | undefined;
         updateCellsBatchingPeriod?: React.Validator<number | null | undefined> | undefined;
         viewabilityConfigCallbackPairs?: React.Validator<import("react-native").ViewabilityConfigCallbackPairs | null | undefined> | undefined;
         windowSize?: React.Validator<number | null | undefined> | undefined;
-        CellRendererComponent?: React.Validator<React.ComponentType<any> | null | undefined> | undefined;
+        CellRendererComponent?: React.Validator<React.ComponentType<import("react-native").CellRendererProps<any>> | null | undefined> | undefined;
         contentContainerStyle?: React.Validator<import("react-native").StyleProp<ViewStyle>> | undefined;
         decelerationRate?: React.Validator<number | "normal" | "fast" | null | undefined> | undefined;
         invertStickyHeaders?: React.Validator<boolean | null | undefined> | undefined;
@@ -293,7 +300,7 @@ export default class Agenda extends Component<AgendaProps, State> {
         contentOffset?: React.Validator<import("react-native").PointProp | null | undefined> | undefined;
         contentInsetAdjustmentBehavior?: React.Validator<"never" | "always" | "automatic" | "scrollableAxes" | null | undefined> | undefined;
         directionalLockEnabled?: React.Validator<boolean | null | undefined> | undefined;
-        indicatorStyle?: React.Validator<"white" | "default" | "black" | null | undefined> | undefined;
+        indicatorStyle?: React.Validator<"white" | "black" | "default" | null | undefined> | undefined;
         maintainVisibleContentPosition?: React.Validator<{
             autoscrollToTopThreshold?: number | null | undefined;
             minIndexForVisible: number;

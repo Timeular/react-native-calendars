@@ -36,12 +36,7 @@ const TodayButton = (props: TodayButtonProps, ref: any) => {
     }
   }));
 
-  const {
-    margin = 0,
-    disabledOpacity = 0.3,
-    theme,
-    style: propsStyle,
-  } = props;
+  const {margin = 0, disabledOpacity = 0.3, theme, style: propsStyle} = props;
   const {date, setDate} = useContext(Context);
   const [disabled, setDisabled] = useState(false);
   const style = useRef(styleConstructor(theme));
@@ -105,7 +100,7 @@ const TodayButton = (props: TodayButtonProps, ref: any) => {
       useNativeDriver: true
     };
   };
-  
+
   const getOpacityAnimation = () => {
     return {
       toValue: disabled ? disabledOpacity : 1,
@@ -138,12 +133,8 @@ const TodayButton = (props: TodayButtonProps, ref: any) => {
 
   return (
     <Animated.View style={[style.current.todayButtonContainer, {transform: [{translateY: buttonY.current}]}]}>
-      <TouchableOpacity
-        style={[style.current.todayButton, propsStyle]}
-        onPress={onPress}
-        disabled={disabled}
-      >
-        <Animated.Image style={[style.current.todayButtonImage, {opacity: opacity.current}]} source={buttonIcon}/>
+      <TouchableOpacity style={[style.current.todayButton, propsStyle]} onPress={onPress} disabled={disabled}>
+        <Animated.Image style={[style.current.todayButtonImage, {opacity: opacity.current}]} source={buttonIcon} />
         <Animated.Text allowFontScaling={false} style={[style.current.todayButtonText, {opacity: opacity.current}]}>
           {today.current}
         </Animated.Text>
